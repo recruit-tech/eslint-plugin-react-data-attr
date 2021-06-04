@@ -1,0 +1,39 @@
+{
+  "name": "eslint-plugin-react-data-attr",
+  "version": "0.0.1",
+  "description": "ESLint rules for data attribute of React's JSX",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
+  "author": "Takuya Shizukuishi",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.4",
+    "@babel/preset-typescript": "^7.13.0",
+    "@types/jest": "^26.0.23",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/experimental-utils": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "eslint": "^7.27.0",
+    "espree": "^7.3.1",
+    "jest": "^27.0.4",
+    "react": "^17.0.2",
+    "typescript": "^4.3.2"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "locale-code": "^2.0.2",
+    "os-locale": "^5.0.0"
+  }
+}
