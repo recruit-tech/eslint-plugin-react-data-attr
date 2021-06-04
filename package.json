@@ -1,7 +1,11 @@
 {
   "name": "eslint-plugin-react-data-attr",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "ESLint rules for data attribute of React's JSX",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/recruit-tech/eslint-plugin-react-data-attr.git"
+  },
   "keywords": [
     "eslint",
     "eslintplugin",
