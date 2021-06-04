@@ -1,5 +1,7 @@
 # eslint-plugin-react-data-attr
 
+[![npm version](https://badge.fury.io/js/eslint-plugin-react-data-attr.svg)](https://badge.fury.io/js/eslint-plugin-react-data-attr)
+
 ESLint rules for data attribute of React's JSX.
 
 ## Installation

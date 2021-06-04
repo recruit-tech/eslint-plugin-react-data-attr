@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-react-data-attr",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ESLint rules for data attribute of React's JSX",
   "keywords": [
     "eslint",
