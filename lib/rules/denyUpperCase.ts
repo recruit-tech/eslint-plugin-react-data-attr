@@ -1,5 +1,6 @@
-import { TSESLint } from "@typescript-eslint/experimental-utils";
-import { localize, testString } from "../utils";
+import { TSESLint } from '@typescript-eslint/experimental-utils';
+import { normalize } from 'upath';
+import { localize, testString } from '../utils';
 
 // types
 type Options = {
@@ -9,45 +10,45 @@ type UserOptions = Partial<Options>;
 // settings
 const defaultOptions: Options = {
   excludeSourceFilePatterns: [
-    "\\.test\\.(jsx|tsx)$",
-    "\\.stories\\.(jsx|tsx)$",
+    '\\.test\\.(jsx|tsx)$',
+    '\\.stories\\.(jsx|tsx)$',
   ],
 };
 
 // utils
-const invalidDataAttrPattern = new RegExp("^data-.*[A-Z]");
+const invalidDataAttrPattern = new RegExp('^data-.*[A-Z]');
 const isInvalidDataAttrName = (name: string): boolean =>
   invalidDataAttrPattern.test(name);
 
 // rule
-export const ruleName = "deny-upper-case";
+export const ruleName = 'deny-upper-case';
 export const denyUpperCase: TSESLint.RuleModule<typeof ruleName, []> = {
   meta: {
-    type: "suggestion",
+    type: 'suggestion',
     docs: {
-      category: "Best Practices",
+      category: 'Best Practices',
       description: localize({
         en: "Uppercase letters cannot be used in the data attribute name in React's JSX.",
-        ja: "ReactのJSXにおいてdata属性名に大文字は使えません。",
+        ja: 'ReactのJSXにおいてdata属性名に大文字は使えません。',
       }),
 
-      recommended: "error",
+      recommended: 'error',
       url: localize({
-        en: "https://reactjs.org/docs/dom-elements.html",
-        ja: "https://ja.reactjs.org/docs/dom-elements.html",
+        en: 'https://reactjs.org/docs/dom-elements.html',
+        ja: 'https://ja.reactjs.org/docs/dom-elements.html',
       }),
     },
     messages: {
-      [ruleName]: "{{ message }}",
+      [ruleName]: '{{ message }}',
     },
     schema: [
       {
-        type: "object",
+        type: 'object',
         properties: {
           excludeSourceFilePatterns: {
-            type: "array",
+            type: 'array',
             items: {
-              type: "string",
+              type: 'string',
             },
           },
         },
@@ -65,7 +66,7 @@ export const denyUpperCase: TSESLint.RuleModule<typeof ruleName, []> = {
       ...userOptions,
     };
 
-    const sourceFilePath = context.getFilename();
+    const sourceFilePath = normalize(context.getFilename());
     const isExcludedFile = options.excludeSourceFilePatterns.some((pattern) =>
       testString(sourceFilePath, pattern)
     );
@@ -75,7 +76,7 @@ export const denyUpperCase: TSESLint.RuleModule<typeof ruleName, []> = {
         if (isExcludedFile) return;
 
         const attrName = node.name.name;
-        if (typeof attrName !== "string") return;
+        if (typeof attrName !== 'string') return;
 
         if (isInvalidDataAttrName(attrName)) {
           context.report({
@@ -84,7 +85,7 @@ export const denyUpperCase: TSESLint.RuleModule<typeof ruleName, []> = {
             data: {
               message: localize({
                 en: "Uppercase letters cannot be used in the data attribute name in React's JSX.",
-                ja: "ReactのJSXにおいてdata属性名に大文字は使えません。",
+                ja: 'ReactのJSXにおいてdata属性名に大文字は使えません。',
               }),
             },
           });

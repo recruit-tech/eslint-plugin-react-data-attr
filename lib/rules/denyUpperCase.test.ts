@@ -1,18 +1,18 @@
-import { TSESLint } from "@typescript-eslint/experimental-utils";
-import { denyUpperCase, ruleName } from "./denyUpperCase";
+import { TSESLint } from '@typescript-eslint/experimental-utils';
+import { denyUpperCase, ruleName } from './denyUpperCase';
 
 const tester = new TSESLint.RuleTester({
-  parser: require.resolve("espree"),
+  parser: require.resolve('espree'),
   parserOptions: {
     ecmaVersion: 2020,
-    sourceType: "module",
+    sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
     },
   },
 });
 
-describe("test", () => {
+describe('test', () => {
   tester.run(ruleName, denyUpperCase, {
     valid: [
       {
@@ -29,6 +29,16 @@ describe("test", () => {
       },
       {
         code: `<Foo data-bar_baz="123"></Foo>`,
+      },
+      {
+        filename:
+          '/Uses/home/testuser/project/src/components/atoms/Foo.test.tsx',
+        code: `<Foo data-Baz="123" />`,
+      },
+      {
+        filename:
+          'C:\\Uses\\home\\testuser\\project\\src\\components\\atoms\\Foo.test.tsx',
+        code: `<Foo data-Baz="123" />`,
       },
     ],
     invalid: [

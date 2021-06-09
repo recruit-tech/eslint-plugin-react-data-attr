@@ -85,7 +85,7 @@ module.exports = {
 
 | Property Name             | Description                                                                                 | Default Value                                                                                                      |
 | :------------------------ | :------------------------------------------------------------------------------------------ | :----------------------------------------------------------------------------------------------------------------- |
-| excludeSourceFilePatterns | An array of RegExp patterns. File paths that match any pattern are excluded from the check. | [here](https://github.com/recruit-tech/eslint-plugin-react-data-attr/blob/main/lib/rules/denyUpperCase.ts#L11-L14) |
+| excludeSourceFilePatterns | An array of RegExp patterns. File paths that match any pattern are excluded from the check. | [here](https://github.com/recruit-tech/eslint-plugin-react-data-attr/blob/main/lib/rules/denyUpperCase.ts#L12-L15) |
 
 ### Licence
 
